@@ -1,0 +1,70 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',
+        filename='bootstrap.css')}}">
+</head>
+<div class ='container'>
+    <br><br>
+    <div class="row top-menu" >
+        <div class="col-md-1"></div>
+        <div class="col-md-8" style="background-color: #3b5998;">
+            <h2 style="color:#ffffff;"><b>Restaurants</h2>
+        </div>
+        <div class="col-md-2 text-right" style="background-color:#3b5998;">
+            <a href="{{url_for('gdisconnect')}}">
+                <h2 style="color:#ffffff;">Logout </h2>
+            </a>
+        </div>
+    </div>
+    <div class="row divider blue">
+        <div class="col-md-12"></div>
+    </div>
+    <div class="row banner main">
+        <div class="col-md-1"></div>
+    </div>
+    <div class = 'flash row'>
+        <div class='col-md-1'></div>
+        <div class='col-md-6'>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        </div>
+    </div>
+    <br>
+    <div class='row'>
+        <div class='col-md-1'></div>
+        <div class='col-md-10'>
+            <a href="{{url_for('newRestaurant')}}">
+                <h4>Add new Restaurant</h4>
+            </a>
+        </div>
+    </div>
+    <div class="row padding-top padding-bottom" >
+        <div class="col-md-1"></div>
+        <div class="col-md-10 padding-none">
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    {% for i in restaurants %}
+    <a href = "{{url_for('restaurantMenu', restaurant_id = i.id)}}">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5 restaurant-list" style="background-color: #3b5998;">
+                <h3 style="color:#ffffff;">{{i.name}}</h3>
+            </div>
+            <div class="col-md-5 restaurant-list">
+                <a href='{{url_for('editRestaurant', restaurant_id = i.id) }}'>Edit
+    </a>
+    <br>
+    <a href='{{url_for('deleteRestaurant', restaurant_id = i.id) }}'>Delete</a>
+    </div>
+    <div class="col-md-1"></div>
+    </div>
+    <br>
+    {% endfor %}
+</div>
