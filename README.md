@@ -11,9 +11,10 @@ This is a python module that creates a website and JSON API for a list of items 
 5. Select Web Application
 6. On the consent screen, type in a product name and save.
 7. In Authorized javascript origins add: http://localhost:5000
-8. Click create client ID
-9. Click download JSON and save it into the root director of this project.
-10. Rename the JSON file "client_secret.json"
+8. In Authorized redirect URIs add: http://localhost:5000/login and http://localhost:5000/gconnect.
+9. Click create client ID
+10. Click download JSON and save it into the root director of this project.
+11. Rename the JSON file "client_secret.json"
  
  
 ## Setup The database and starting the server:
