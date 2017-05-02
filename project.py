@@ -227,7 +227,7 @@ def editRestaurant(restaurant_id):
             editedRestaurant.name = request.form['name']
         session.add(editedRestaurant)
         session.commit()
-        flash("Restaurant details changed %s" % editrestaurant.name)
+        flash("Restaurant details changed %s" % editedRestaurant.name)
         return redirect(url_for('restaurant'))
     else:
         return render_template(

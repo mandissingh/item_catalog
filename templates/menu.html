@@ -48,9 +48,19 @@
         </div>
     </div>
     <div class='row'>
-        <div class='col-md-10'>
+        <div class='col-md-3'>
             <a href="{{url_for('newMenuItem',restaurant_id=restaurant.id)}}">
                 <h4>Add new Menu item</h4>
+            </a>
+        </div>
+        <div class='col-md-3'>
+            <a href="{{url_for('editRestaurant',restaurant_id=restaurant.id)}}">
+                <h4>Edit this Restaurant</h4>
+            </a>
+        </div>
+        <div class='col-md-3'>
+            <a href="{{url_for('deleteRestaurant',restaurant_id=restaurant.id)}}">
+                <h4>Delete this Restaurant</h4>
             </a>
         </div>
     </div>
