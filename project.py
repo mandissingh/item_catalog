@@ -91,7 +91,7 @@ def gconnect():
         return response
 
     # Store the access token in the session for later use.
-    login_session['credentials'] = credentials
+    login_session['credentials'] = credentials.access_token
     login_session['gplus_id'] = gplus_id
 
     # Get user info
@@ -99,7 +99,7 @@ def gconnect():
     params = {'access_token': credentials.access_token, 'alt': 'json'}
     answer = requests.get(userinfo_url, params=params)
 
-    data = answer.json()
+    data = json.loads(answer.text)
 
     login_session['username'] = data['name']
     login_session['picture'] = data['picture']
